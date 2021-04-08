@@ -14,5 +14,8 @@ class MyIter:
         else:
             raise StopIteration
 
+#first init object is returned.
+#iterable object is called.
+#eventually for
 for i in MyIter(5):
     print(i)
