@@ -3,7 +3,7 @@ from datetime import timedelta
 import re
 
 
-api_key = "AIzaSyCMpQbH0agQ-d6qYgxFCkUBtkPxVR58YtY"
+api_key = ""
 youtube_service = build('youtube','v3', developerKey=api_key)
 
 # playlist_request = youtube_service.playlists().list(
