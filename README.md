@@ -18,9 +18,6 @@
 
 **Python Scripts** is a collection of scripts made to provide comprehensive support for OAuth2 and OpenID Connect on the server side. It adheres to high standards of flexibility, reusability, and reliability, utilizing well-known software automations. These scripts  ensure the following benefits:
 
-- **Modularity**: Different parts of the scripts can function independently, enhancing the modularity and allowing for easier maintenance and updates.
-- **Maintainability**: Clear structure and separation facilitate better management of the codebase.
-
 ## ✨ What's New
 
 ### Version 2.0.0 (Latest)
@@ -51,5 +48,3 @@ python --version  # Check the installed version of Python
 
 # Run the File
 python3 [filename]
-
-[Back to top](#top)
