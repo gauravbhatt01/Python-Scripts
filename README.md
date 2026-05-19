@@ -16,18 +16,18 @@
 
 ## 🚀 About
 
-**Python Scripts** is a collection of scripts made to provide comprehensive support for OAuth2 and OpenID Connect on the server side. It adheres to high standards of flexibility, reusability, and reliability, utilizing well-known software automations. These scripts  ensure the following benefits:
+**Python Scripts** is a collection of automation scripts made to automate the boring repetitive stuff using Python. 
 
 ## ✨ What's New
 
 ### Version 2.0.0 (Latest)
 
-⚡ **Breaking Changes**
+⚡ **Scripts Overview**
 - **seo.py**: Useful script that helps you generate necessary files required to improve site visibility and important guidelines for web crawlers to adhere to. 
 - **news-headlines.py**: Gets latest news headlines for various categories. Currently the Script is hardcoded to fetch news from Business category.  
 - **padhega-india-scraper.py**: Gets latest prices of Books from Padhega India Website and converts them in an Excel File.  
 
-## 📝 How to Build
+## 📝 How to Run
 
 To Run the Scripts, follow these steps:
 
