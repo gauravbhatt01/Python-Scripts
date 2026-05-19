@@ -1,142 +1,101 @@
-# Author - one and only gauravdotbhatt
-# Dated - 06-10-2025
-# quote of the day - go where your heart leads you. (.)=(.)
+# Author: gauravdotbhatt
+# Created: 06-10-2025
+# Moto - go where your heart leads you. (.)=(.)
 
 import requests
-from bs4 import BeautifulSoup
-import json
+from typing import Dict, List
 
+BASE_URL = "https://inshorts.com/api/en/search/trending_topics"
 
-def get_headers():
-    return {
-         "news_obj": {
-              "old_hash_id": "sebi-analyst-recommends-buy-on-two-high-flying-chemical-stocks-1759734828432",
-              "hash_id": "xlttqg63-1",
-              "author_name": "",
-              "content": "Two chemical stocks, India Glycols and Pondy Oxides & Chemicals, have seen a stellar run in the last six months, with India Glycols rising over 50% and Pondy Oxides' seeing over 100% rally. Analyst believes that there is more room for rally ahead. Analyst Palak Jain is bullish on these two stocks, driven by strong technicals and fundamental support. ",
-              "source_url": "https://stocktwits.com/news-articles/markets/equity/pondy-oxides-india-glycols-eye-further-gains-says-analyst-palak-jain/ch6bDgRR3XK?utm_source=inshorts&utm_medium=referral&utm_campaign=fullarticle",
-              "source_name": "Stocktwits",
-              "title": "SEBI Analyst recommends buy on two high-flying chemical stocks",
-              "important": false,
-              "image_url": "https://nis-gs.pix.in/inshorts/images/v1/variants/jpg/m/2025/10_oct/6_mon/img_1759734645984_759.jpg?",
-              "shortened_url": "https://shrts.in/folkrz5jh2",
-              "created_at": 1759734828000,
-              "score": 800,
-              "category_names": [
-                    "business",
-                    "FINANCE"
-              ],
-              "relevancy_tags": [],
-              "tenant": "ENGLISH",
-              "fb_object_id": "",
-              "fb_like_count": 0,
-              "country_code": "IN",
-              "impressive_score": 13,
-              "targeted_city": [
-                    ""
-              ],
-              "gallery_image_urls": [],
-              "full_gallery_urls": [],
-              "bottom_headline": "Tap to know more",
-              "bottom_text": "Read more here ",
-              "darker_fonts": false,
-              "bottom_panel_link": "https://stocktwits.com/news-articles/markets/equity/pondy-oxides-india-glycols-eye-further-gains-says-analyst-palak-jain/ch6bDgRR3XK?utm_campaign=fullarticle&utm_medium=referral&utm_source=inshorts",
-              "bottom_type": "DEFAULT",
-              "byline_1": [
-                    {
-                          "type": "TEXT",
-                          "text": "swipe left for more at Stocktwits / "
-                    },
-                    {
-                          "type": "TIME"
-                    }
-              ],
-              "byline_2": [
-                    {
-                          "type": "TEXT",
-                          "text": "swipe left for more at Stocktwits / "
-                    },
-                    {
-                          "type": "TIME"
-                    }
-              ],
-              "version": 0,
-              "position_start_time": "1970-01-01T00:00:00Z",
-              "position_expire_time": "1970-01-01T00:00:00Z",
-              "trackers": [],
-              "dfp_tags": "score:800,news:default,cat:business,cat:FINANCE,hash:9",
-              "dont_show_ad": false,
-              "poll_tenant": "ENGLISH",
-              "show_inshorts_brand_name": true,
-              "crypto_coin_preference": null,
-              "is_overlay_supported": false,
-              "news_type": "NEWS",
-              "is_muted": false,
-              "video_audio_type": "USER_SPECIFIED_AUDIO",
-              "auto_play_type": "AUTO_PLAY_USER_SPECIFIED",
-              "show_in_video_feed_only": false,
-              "similar_threshold": 0,
-              "is_similar_feed_available": false,
-              "publisher_info": {
-                    "name": "Stocktwits",
-                    "user_id": "bNUIOqdGswRf0mrhElfVMLrnddk2",
-                    "user_type": "VENDOR",
-                    "profile_image_url": "https://nis-gs.pix.in/public/images/v1/variants/jpg/m/2024/01_jan/5_fri/img_1704466220628_915.jpg",
-                    "thumbnail_image_url": "https://nis-gs.pix.in/public/images/v1/variants/jpg/m/2024/01_jan/5_fri/img_1704466220628_915.jpg",
-                    "sponsored_text": "",
-                    "force_show_interested": false
-              },
-              "show_publisher_info": false,
-              "is_profile_clickable": false,
-              "publisher_interaction_meta": {
-                    "user_id": "bNUIOqdGswRf0mrhElfVMLrnddk2",
-                    "is_publisher_followed": false,
-                    "show_follow_button": false
-              },
-              "capsule_image_url": "",
-              "capsule_custom_card_id": "",
-              "capsule_custom_card_url": "",
-              "capsule_campaign": "",
-              "is_youtube_video": null,
-              "publishing_status": {},
-              "is_market_watch_short": true,
-              "publisher_interaction_meta": {
-              "user_id": "bNUIOqdGswRf0mrhElfVMLrnddk2",
-              "is_publisher_followed": false,
-              "show_follow_button": false
-        },
-        "publishing_status": {}
-        }
-    }
-
-url = {
-    "India" : "https://inshorts.com/api/en/search/trending_topics/india",
-    "Business" : "https://inshorts.com/api/en/search/trending_topics/business",
-    "Politics" : "https://inshorts.com/api/en/search/trending_topics/politics",
-    "Sports" : "https://inshorts.com/api/en/search/trending_topics/sports",
-    "Technology" : "https://inshorts.com/api/en/search/trending_topics/technology",
-    "Startups" : "https://inshorts.com/api/en/search/trending_topics/startups",
-    "Entertainment" : "https://inshorts.com/api/en/search/trending_topics/entertainment",
-    "Hatke" : "https://inshorts.com/api/en/search/trending_topics/hatke",
-    "International" : "https://inshorts.com/api/en/search/trending_topics/international",
-    "Automobile" : "https://inshorts.com/api/en/search/trending_topics/automobile",
-    "Science" : "https://inshorts.com/api/en/search/trending_topics/science",
-    "Travel" : "https://inshorts.com/api/en/search/trending_topics/travel",
-    "Miscellaneous" : "https://inshorts.com/api/en/search/trending_topics/miscellaneous",
-    "Fashion" : "https://inshorts.com/api/en/search/trending_topics/fashion",
-    "Education" : "https://inshorts.com/api/en/search/trending_topics/education",
-    "Health___Fitness" : "https://inshorts.com/api/en/search/trending_topics/Health___Fitness",
+CATEGORIES = {
+    "India": "india",
+    "Business": "business",
+    "Politics": "politics",
+    "Sports": "sports",
+    "Technology": "technology",
+    "Startups": "startups",
+    "Entertainment": "entertainment",
+    "Hatke": "hatke",
+    "International": "international",
+    "Automobile": "automobile",
+    "Science": "science",
+    "Travel": "travel",
+    "Miscellaneous": "miscellaneous",
+    "Fashion": "fashion",
+    "Education": "education",
+    "Health_Fitness": "health___fitness",
 }
 
-print("### Checking Api Endpoints Health###")
-for category in url.keys():
-    print(category, requests.get(url[category]).status_code)
+HEADERS = {
+    "User-Agent": "Mozilla/5.0",
+    "Accept": "application/json",
+}
 
-url = url['Business']  #url = 'https://inshorts.com/api/en/search/trending_topics/business'
-payload = {'page':'1', 'type':'NEWS_CATEGORY'}
-response = requests.get(url, params=payload).json()
-data = response['data']['suggested_news']
-for i in range(0,10):
-    print(i+1, data[i]['news_obj']['content'])
-    print("----------------------------")
+def build_url(category: str) -> str:
+    """
+    Build API URL for a category.
+    """
+    return f"{BASE_URL}/{category}"
 
+def check_api_health(categories: Dict[str, str]) -> None:
+    """
+    Check status code of all endpoints.
+    """
+    print("\n### Checking API Endpoint Health ###\n")
+
+    for name, endpoint in categories.items():
+        url = build_url(endpoint)
+        try:
+            response = requests.get(
+                url,
+                headers=HEADERS,
+                timeout=10
+            )
+            print(f"{name:<15} -> {response.status_code}")
+        except requests.RequestException as e:
+            print(f"{name:<15} -> ERROR: {e}")
+
+
+def fetch_news(category: str, limit: int = 10) -> List[str]:
+    """
+    Fetch top news content from category.
+    """
+
+    url = build_url(category)
+    params = {
+        "page": 1,
+        "type": "NEWS_CATEGORY"
+    }
+    try:
+        response = requests.get(
+            url,
+            headers=HEADERS,
+            params=params,
+            timeout=10
+        )
+        response.raise_for_status()
+        data = response.json()
+        news_items = data.get("data", {}).get("suggested_news", [])
+        headlines = []
+
+        for item in news_items[:limit]:
+            content = item.get("news_obj", {}).get("content")
+            if content:
+                headlines.append(content)
+        return headlines
+    except requests.RequestException as e:
+        print(f"Request failed: {e}")
+    except ValueError:
+        print("Invalid JSON response")
+    return []
+
+def main():
+    check_api_health(CATEGORIES)
+    print("\n### Business News ###\n")
+    news = fetch_news("business")
+    for index, article in enumerate(news, start=1):
+        print(f"{index}. {article}")
+        print("-" * 50)
+
+if __name__ == "__main__":
+    main()
