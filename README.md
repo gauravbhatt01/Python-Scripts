@@ -24,7 +24,8 @@
 
 ⚡ **Breaking Changes**
 - **seo.py**: Useful script that helps you generate necessary files required to improve site visibility and important guidelines for web crawlers to adhere to. 
-- **news-headlines.py**: Get latest news headlines for various categories. Currently the Script is hardcoded to fetch news from Business category.  
+- **news-headlines.py**: Gets latest news headlines for various categories. Currently the Script is hardcoded to fetch news from Business category.  
+- **padhega-india-scraper.py**: Gets latest prices of Books from Padhega India Website and converts them in an Excel File.  
 
 ## 📝 How to Build
 
